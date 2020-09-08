@@ -8,7 +8,7 @@ const Search = () => {
     const alertContext = useContext(AlertContext);
     const [text, setText] = useState('');
 
-    const onSubmit = e => {
+    const onSubmit = (e) => {
         e.preventDefault();
         if (text === '') {
             alertContext.searchAlert('Please enter someting', 'light');
@@ -24,20 +24,14 @@ const Search = () => {
                 <input
                     type="text"
                     name="text"
-                    onChange={e => setText(e.target.value)}
+                    onChange={(e) => setText(e.target.value)}
                     value={text}
                     placeholder="Search users..."
                 />
-                <input
-                    type="submit"
-                    value="Search"
-                    className="btn btn-dark btn-block"
-                />
+                <input type="submit" value="Search" className="btn btn-dark btn-block" />
             </form>
             {githubContext.users.length > 0 && (
-                <button
-                    className="btn btn-light btn-block"
-                    onClick={githubContext.clearUsers}>
+                <button className="btn btn-light btn-block" onClick={githubContext.clearUsers}>
                     Clear
                 </button>
             )}
